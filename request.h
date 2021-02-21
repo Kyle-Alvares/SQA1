@@ -12,6 +12,7 @@ namespace req {
     string askAccountName(User user, int valid);
     double askAmount();
     double askAmount(double max);
+    bool askNames(User user); // For use with privileged users.
 }
 
 #endif
