@@ -13,28 +13,45 @@ User::User(int accountNumber) {
 }
 
 // accessor methods
+
+// Gets the current user’s account number.
 int User::getAccountNumber() { return accountNumber; }
+// Gets the current user’s first name.
 string User::getFirstName() { return firstName; }
+// Gets the current user’s middle name.
 string User::getMiddleName() { return middleName; }
+// Gets the current user’s last name.
 string User::getLastName() { return lastName; }
+// Gets the current user’s password.
 string User::getPassword() { return password; }
+// Checks if the current user has admin abilities.
 bool User::isAdmin() { return isAdminAccount; }
+// Gets the current user’s account(s).
 vector<User::account> User::getAccounts() { return accounts; }
 
 // mutator methods
+
+// Sets the current user’s first name to the account.
 void User::setFirstName(string firstName) { 
     this->firstName = firstName; 
 }
+// Sets the current user’s middle name to the account.
 void User::setMiddleName(string middleName) { 
     this->middleName = middleName; 
 }
+// Sets the current user’s last name to the account.
 void User::setLastName(string lastName) { 
     this->lastName = lastName; 
 }
+// Sets the current user’s password to the account.
 void User::setPassword(string password) { 
     this->password = password; 
 }
-
+/* 
+*  Creates a new user account. 
+*  Rolls a dice between 1000000 -  9999999, until we get an ID that doesn’t already exist. 
+*  New bank accounts only have cheqings with balance 0 by default. 
+*/
 void User::createUser() {
     bool accountExists = true;
     while(accountExists) {
@@ -61,7 +78,7 @@ void User::createUser() {
     acc.balance = 0;
     accounts.push_back(acc);
 }
-
+// Loads the user’s data from a file if we have a matching account #.
 void User::getUserData(int accountNumber) {
     this->accountNumber = accountNumber;
     
@@ -92,7 +109,11 @@ void User::getUserData(int accountNumber) {
     }
     ifs.close();
 }
-
+/*
+*  Exports user info to a file. Resulting filename will be account#.txt. 
+*  First name, middle name, last name, password, admin flag, account disabled flag, 
+*  account plan, account name, and account balance. Each field in a new line.
+*/
 void User::saveUserData() {
     ofstream ofs("./users/" + to_string(accountNumber) + ".txt");
     if(ofs.fail()) {
@@ -112,6 +133,7 @@ void User::saveUserData() {
     ofs.close(); 
 } 
 
+/* ************************* */
 int User::getAccountIndex(string accountName) {
     for(int i = 0; i < accounts.size(); i++) {
         if(accounts[i].accountName.compare(accountName) == 0) {
@@ -120,7 +142,7 @@ int User::getAccountIndex(string accountName) {
     }
     return -1;
 }
-
+// Adds balance to the user’s specified account. Must be > 0. Negative values aren’t allowed.
 bool User::deposit(string accountName, double amount) {
     int index = getAccountIndex(accountName);
     if(index == -1) { return false; }
@@ -128,7 +150,7 @@ bool User::deposit(string accountName, double amount) {
     accounts[index].balance += amount;
     return true;
 }
-
+// Removes balance to the user’s specified account. Must be > 0, and <= 500.
 bool User::withdraw(string accountName, double amount) {
     int index = getAccountIndex(accountName);
     if(index == -1) { return false; }
@@ -136,7 +158,11 @@ bool User::withdraw(string accountName, double amount) {
     accounts[index].balance -= amount;
     return true;
 }
-
+/*
+*  ***ADMIN ONLY***
+*  Add a new account to the banking system. New accounts may 
+*  be assigned to existing users, and have a balance of $0.00 by default.
+*/
 bool User::createAccount(string accountName) {
     if(!isAdmin()) return false;
     if(getAccountIndex(accountName) != -1) { return false; }
@@ -148,7 +174,10 @@ bool User::createAccount(string accountName) {
     accounts.push_back(acc);
     return true;
 }
-
+/* 
+*  ***ADMIN ONLY*** 
+*  Disables an account.
+*/
 bool User::disableAccount(string accountName) {
     if(!isAdmin()) return false;
     int index = getAccountIndex(accountName);
@@ -156,14 +185,23 @@ bool User::disableAccount(string accountName) {
     accounts[index].disabled = true;
     return true;
 }
-
+/*
+*  ***ADMIN ONLY*** 
+*  Checks if the specified account is disabled. Disabled accounts exist
+*  in the banking system, but they may not login, and therefore, they 
+*  have no access to any of the actions that require it.
+*/
 bool User::isDisabled(string accountName) {
     if(!isAdmin()) return false;
     int index = getAccountIndex(accountName);
     if(index == -1) { return false; }
     return accounts[index].disabled;
 }
-
+/*
+*  ***ADMIN ONLY*** 
+*  Removes the specified account from the banking system. 
+*  This action is non-reversible. 
+*/
 bool User::deleteAccount(string accountName) {
     if(!isAdmin()) return false;
     int index = getAccountIndex(accountName);
@@ -171,7 +209,10 @@ bool User::deleteAccount(string accountName) {
     accounts.erase(accounts.begin() + index);
     return true;
 }
-
+/*
+*  ***ADMIN ONLY*** 
+*  Changes an account’s plan. Can be set as “student” or “standard”. 
+*/
 bool User::changePlan(string accountName) {
     if(!isAdmin()) return false;
     int index = getAccountIndex(accountName);

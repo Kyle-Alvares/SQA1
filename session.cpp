@@ -23,7 +23,10 @@ User Session::getUser()
 {
     return user;
 }
-
+/*
+*  Withdraws from the specified account. First asks for the account to withdraw from,
+*  then the amount that is to be withdrawn. Check that the amount to withdraw is > 0 && <= 500 (per session)
+*/
 double Session::withdraw(double max)
 {
     cout << endl
@@ -44,7 +47,10 @@ double Session::withdraw(double max)
     transactions.push_back("01" + username + to_string(amount));
     return amount;
 }
-
+/*
+*  Remove balance from the active account and add it to the specified account’s chequing 
+*  account balance. Check that the amount to transfer is > 0 && <= 1000 (per session)
+*/
 void Session::transfer()
 {
     if (user.isAdmin())
@@ -66,7 +72,12 @@ void Session::transfer()
     other.saveUserData();
     transactions.push_back("02" + username + to_string(amount));
 }
-
+/*
+*  Similarly to transfer, it removes balance from the active account, 
+*  and moves it over to the specified account’s checkings balance. 
+*  The maximum Max amount that may be paid is $2000, per session. 
+*  his limitation doesn’t exist for admins. Balance must be at least $0.00 afterwards.
+*/
 void Session::payBill()
 {
     if (user.isAdmin())
@@ -113,7 +124,10 @@ void Session::payBill()
     cout << endl
          << "Bill paid successfully!" << endl;
 }
-
+/*
+*  Deposits into the specified account. First asks for the account 
+*  to deposit to, then the amount that is to be deposited.
+*/
 bool Session::deposit()
 {
     if (user.isAdmin())
@@ -131,7 +145,10 @@ bool Session::deposit()
     transactions.push_back("04" + username + to_string(amount));
     return user.deposit(accountName, amount);
 }
-
+/*
+*  ***ADMIN ONLY*** 
+*  Creates a bank account with the specified name.
+*/
 void Session::createAccount()
 {
     cout << endl
@@ -154,7 +171,10 @@ void Session::createAccount()
         }
     }
 }
-
+/*
+*  ***ADMIN ONLY*** 
+* Removes the given account from the bank’s database (by name).
+*/
 void Session::deleteAccount()
 {
     cout << endl
@@ -177,7 +197,10 @@ void Session::deleteAccount()
         }
     }
 }
-
+/*
+*  ***ADMIN ONLY*** 
+*  Disables the give account (by name) .
+*/
 void Session::disableAccount()
 {
     cout << endl
@@ -200,7 +223,10 @@ void Session::disableAccount()
         }
     }
 }
-
+/*
+*  ***ADMIN ONLY*** 
+*  Changes an account’s type. (student or standard)
+*/
 void Session::changePlan()
 {
     cout << endl
@@ -223,7 +249,10 @@ void Session::changePlan()
         }
     }
 }
-
+/*
+*  Shows all available bank actions. Only accounts 
+*  marked as admin can see all the options.
+*/
 void Session::prompt()
 {
     int max = user.isAdmin() ? 8 : 4;
@@ -294,6 +323,7 @@ void Session::prompt()
     }
 }
 
+// Calls “User” saveUserData().
 void Session::save()
 {
     user.saveUserData();

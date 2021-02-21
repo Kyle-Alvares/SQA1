@@ -7,11 +7,19 @@
 
 using namespace std;
 
+/*
+*  Asks for the account number. This fails if the information 
+*  provided doesn’t match what we have on file.
+*/
 int req::askAccountNumber()
 {
     return req::askAccountNumber("Enter account number: ");
 }
-
+/* 
+*  Asks for the account number. This fails if the information 
+*  provided doesn’t match what we have on file. Any error 
+*  messages will be stored in the errorMsg parameter.
+*/
 int req::askAccountNumber(string errMsg)
 {
     bool validAccount = false;
@@ -30,7 +38,10 @@ int req::askAccountNumber(string errMsg)
     }
     return accountNumber;
 }
-
+/*
+*  Asks for the account name. This fails if the information 
+*  provided doesn’t match what we have on file.
+*/
 string req::askAccountName(User user, int valid)
 {
     string accountName;
@@ -44,7 +55,10 @@ string req::askAccountName(User user, int valid)
     }
     return accountName;
 }
-
+/*
+*  ***ADMIN ONLY*** 
+*  Confirms admin name before proceeding with action.
+*/
 bool req::askNames(User user)
 {
     string fName;
@@ -63,12 +77,18 @@ bool req::askNames(User user)
         return true;
     }
 }
-
+/*
+*  Asks for an amount for the transaction. 
+*  [0 - MaxDoubleValue]
+*/
 double req::askAmount()
 {
     return req::askAmount(numeric_limits<double>::max());
 }
-
+/*
+*  Asks for an amount for the transaction. 
+*  This version respects account limits.
+*/
 double req::askAmount(double max)
 {
     double amount;
