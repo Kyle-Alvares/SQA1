@@ -133,7 +133,7 @@ void User::saveUserData() {
     ofs.close(); 
 } 
 
-/* ************************* */
+// Locates the index corresponding to the account.
 int User::getAccountIndex(string accountName) {
     for(int i = 0; i < accounts.size(); i++) {
         if(accounts[i].accountName.compare(accountName) == 0) {
@@ -142,7 +142,10 @@ int User::getAccountIndex(string accountName) {
     }
     return -1;
 }
-// Adds balance to the user’s specified account. Must be > 0. Negative values aren’t allowed.
+/*
+*  Adds balance to the user’s specified account. 
+*  Must be > 0. Negative values aren’t allowed.
+*/
 bool User::deposit(string accountName, double amount) {
     int index = getAccountIndex(accountName);
     if(index == -1) { return false; }
@@ -150,7 +153,10 @@ bool User::deposit(string accountName, double amount) {
     accounts[index].balance += amount;
     return true;
 }
-// Removes balance to the user’s specified account. Must be > 0, and <= 500.
+/*
+*  Removes balance to the user’s specified account. 
+*  Must be > 0, and <= 500.
+*/
 bool User::withdraw(string accountName, double amount) {
     int index = getAccountIndex(accountName);
     if(index == -1) { return false; }
