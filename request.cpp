@@ -59,22 +59,18 @@ string req::askAccountName(User user, int valid)
 *  ***ADMIN ONLY*** 
 *  Confirms admin name before proceeding with action.
 */
-bool req::askNames(User user)
+void req::askNames(User user)
 {
     string fName;
     string lName;
-    cout << "Please confirm your first name: ";
-    cin >> fName;
-    cout << "Please confirm your last name: ";
-    cin >> lName;
-    if (fName != user.getFirstName() && lName != user.getLastName())
-    {
-        cerr << "Error: Name doesn't match admin name!" << endl;
-        return false;
-    }
-    else
-    {
-        return true;
+    bool valid = false;
+    while(!valid) {
+        cout << "Enter your first name: ";
+        cin >> fName;
+        cout << "Enter your last name: ";
+        cin >> lName;
+        if (fName == user.getFirstName() && lName == user.getLastName())
+            valid = true;
     }
 }
 /*

@@ -32,6 +32,8 @@ User Session::getUser() {
 double Session::withdraw(double max, bool displayHeader) {
     if(displayHeader)
         cout << endl << "============WITHDRAW===========" << endl;
+    if(user.isAdmin())
+        askNames(user);
     string accountName = askAccountName(user, -1);
     int index = user.getAccountIndex(accountName);
     double balance = user.getAccounts()[index].balance;

@@ -33,6 +33,8 @@ int main() {
             }
         } else if(action == 2) {
             user.createUser();
+        } else if(action == -1) {
+            break;
         } else {
             continue;
         }
