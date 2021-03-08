@@ -42,7 +42,9 @@ double Session::withdraw(double max, bool displayHeader) {
     }
     int index = user.getAccountIndex(accountName);
     double balance = user.getAccounts()[index].balance;
-    double amount = askAmount(min(balance, max));
+    double amount;
+    if(user.isAdmin()) amount = askAmount(balance);
+    else amount = askAmount(min(balance, max));
     user.withdraw(accountName, amount);
     transactions.push_back("01" + username + to_string(amount));
     return amount;

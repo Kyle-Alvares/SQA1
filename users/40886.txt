@@ -3,5 +3,5 @@ Amy
 Carson
 a
 1
-00chequings$9874.75
+00chequings$9321
 10savings$1000

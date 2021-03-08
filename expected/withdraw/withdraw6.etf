@@ -1,0 +1,42 @@
+
+=============HOME=============
+[1] Login
+[2] Create Account
+Action: 1
+Enter Account Number: 69383
+Enter Password: 12345
+
+===========LOGGED IN===========
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+Option: 1
+
+============WITHDRAW===========
+Enter account name: chequings
+Enter amount: $-1
+Error: Invalid amount!
+Enter amount: $0
+Error: Invalid amount!
+Enter amount: $501
+Error: Invalid amount!
+Enter amount: $1
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+Option: 0
+
+===========LOGGED OUT===========
+
+=============HOME=============
+[1] Login
+[2] Create Account
+Action: -1
