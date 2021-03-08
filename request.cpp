@@ -88,13 +88,22 @@ double req::askAmount()
 double req::askAmount(double max)
 {
     double amount;
-    cout << "Enter amount: $";
-    cin >> amount;
-    while (amount <= 0 || amount > max)
+    bool validDecimal;
+    bool valid = false;
+    while(!valid) 
     {
-        cerr << "Error: Invalid amount!" << endl;
         cout << "Enter amount: $";
         cin >> amount;
+        string strAmount = to_string(amount);
+        string decimal = strAmount.substr(strAmount.find('.') + 1);
+        validDecimal = true;
+        for(int i = 2; i < decimal.length(); i++)
+            if(decimal[i] != '0')
+                validDecimal = false;
+        if(amount <= 0 || amount > max || !validDecimal)
+            cerr << "Error: Invalid amount!" << endl;
+        else 
+            valid = true;
     }
     return amount;
 }

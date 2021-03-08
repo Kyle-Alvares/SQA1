@@ -23,8 +23,10 @@ Option: 1
 ============WITHDRAW===========
 Enter your first name: Aja
 Enter your last name: Wells
+Enter account name: international
+Error: Invalid account name!
 Enter account name: chequings
-Enter amount: $100
+Enter amount: $10
 
 ===========OPTIONS============
 [0] Logout

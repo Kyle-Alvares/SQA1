@@ -33,7 +33,13 @@ double Session::withdraw(double max, bool displayHeader) {
         cout << endl << "============WITHDRAW===========" << endl;
     if(user.isAdmin())
         askNames(user);
-    string accountName = askAccountName(user, -1);
+    bool valid = false;
+    string accountName;
+    while(!valid) {
+        accountName = askAccountName(user, -1);
+        valid = user.isDisabled(accountName) ? false : true;
+        if(!valid) cout << "Error: disabled account!" << endl;
+    }
     int index = user.getAccountIndex(accountName);
     double balance = user.getAccounts()[index].balance;
     double amount = askAmount(min(balance, max));

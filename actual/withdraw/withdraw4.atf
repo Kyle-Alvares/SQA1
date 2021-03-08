@@ -17,7 +17,8 @@ Action: Enter Account Number: Enter Password:
 [8] Change Plan
 Option: 
 ============WITHDRAW===========
-Enter your first name: Enter your last name: Enter account name: Enter amount: $
+Enter your first name: Enter your last name: Enter account name: Error: disabled account!
+Enter account name: Enter amount: $
 ===========OPTIONS============
 [0] Logout
 [1] Withdraw
