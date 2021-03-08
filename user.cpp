@@ -176,7 +176,8 @@ bool User::createAccount(string accountName) {
     acc.disabled = false;
     acc.isStudentPlan = false;
     acc.accountName = accountName;
-    acc.balance = 0;
+    acc.balance = 0.00;
+    cout << endl << "Account Balance is: 0.00" << endl;
     accounts.push_back(acc);
     return true;
 }

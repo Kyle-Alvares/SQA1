@@ -1,0 +1,63 @@
+
+=============HOME=============
+[1] Login
+[2] Create Account
+Action: 1
+Enter Account Number: 52893
+Enter Password: a
+
+===========LOGGED IN===========
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+[5] Create Account
+[6] Delete Account
+[7] Disable Account
+[8] Change Plan
+Option: 5
+
+========CREATE ACCOUNT========
+Enter account name: 0
+Error: Invalid account name!
+Enter account name: 1
+Error: Invalid account name!
+Enter account name: 2
+Error: Invalid account name!
+Enter account name: 3
+Error: Invalid account name!
+Enter account name: 4
+Error: Invalid account name!
+Enter account name: 5
+Error: Invalid account name!
+Enter account name: 6
+Error: Invalid account name!
+Enter account name: 7
+Error: Invalid account name!
+Enter account name: 8
+Error: Invalid account name!
+Enter account name: temp
+
+Account Balance is: 0.00
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+[5] Create Account
+[6] Delete Account
+[7] Disable Account
+[8] Change Plan
+Option: 0
+
+===========LOGGED OUT===========
+
+=============HOME=============
+[1] Login
+[2] Create Account
+Action: -1

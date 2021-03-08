@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <fstream>
 #include <vector>
@@ -109,9 +110,19 @@ void Session::createAccount() {
     if(!user.isAdmin()) { 
         cerr << "Error: privileged transaction!" << endl; 
     } else {
-        string accountName = askAccountName(user, 0);
-        user.createAccount(accountName);
-        transactions.push_back("05" + username + "00000000");
+        int session = 0;
+        while(session == 0) {
+            string accountName = askAccountName(user, 0);
+            if (std::any_of(accountName.begin(), accountName.end(), ::isdigit) == true){
+                cerr << "Error: Invalid account name!" << endl;
+            } else if (accountName.size() > 20) {
+                cerr << "Error: Invalid account name!" << endl;
+            } else {
+                session += 1;
+                user.createAccount(accountName);
+                transactions.push_back("05" + username + "00000000");
+            }
+        }
     }
 }
 
