@@ -16,6 +16,7 @@ class Session {
     public:
         static const string companies[];
         static const string companyAbbrv[];
+        static const int companyAcc[];
         Session(User user);
         User getUser();
         double withdraw(double max, bool displayHeader);

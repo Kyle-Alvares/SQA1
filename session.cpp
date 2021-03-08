@@ -11,11 +11,14 @@
 using namespace req;
 
 const string Session::companies[] = {
-            "The Bright Light Electric Company (EC)", // 52777
-            "Credit Card Company Q (CQ)",             // 56915  
-            "Fast Internet Inc (FI)" };               // 77793
+            "The Bright Light Electric Company", // 52777
+            "Credit Card Company Q",             // 56915  
+            "Fast Internet Inc" };               // 77793
 
 const string Session::companyAbbrv[] = { "EC", "CQ", "FI" };
+
+const int Session::companyAcc[] = { 52777, 56915, 77793 }; 
+
 // constructors
 Session::Session(User user) {
     this->user = user;
@@ -63,38 +66,26 @@ void Session::transfer() {
 }
 
 void Session::payBill() {
-    string mssg = "Enter company account number: ";
     cout << endl << "============PAYBILL===========" << endl;
-    if(user.isAdmin()) {
-        string firstName, lastName;
-        bool validNames = false;
-        while(!validNames) {
-            cout << "Enter first name: ";
-            cin >> firstName;
-            cout << "Enter last name: ";
-            cin >> lastName;
-            if(user.getFirstName().compare(firstName) == 0 && user.getLastName().compare(lastName) == 0) {
-                validNames = true;
-            } else {
-                cerr << "Error: invalid name" << endl;
-            }
-        }
-    }
-    cout << mssg;
-    int accountNumber = askAccountNumber(mssg);
+    // cin.ignore(); // clears buffer from cin for getline
+    int numCompanies = sizeof(companyAcc) / sizeof(int);
     string company;
+    int accountNumber;
     bool validCompany = false;
     while(!validCompany) {
         cout << "Companies: " << endl;
-        for (string c : companies) 
-            cout << c << endl;
+        for(int i = 0; i < numCompanies; i++)
+            cout << companies[i] + " (" + companyAbbrv[i] << ")" << endl;
         cout << "Enter company name: ";
         cin >> company;
-        for(string cA: companyAbbrv) 
-            if (company.compare(cA) == 0) 
+        for(int i = 0; i < numCompanies; i++) {
+            if(company.compare(companyAbbrv[i]) == 0) {
+                accountNumber = companyAcc[i];
                 validCompany = true;
+            }
+        }
         if (!validCompany)
-            cerr << "Error: Invalid Name!" << endl;
+            cerr << "Error: Invalid company name!" << endl;
     }
     cout << "Choose account to use to pay bill." << endl;
     double amount = withdraw(2000, false);

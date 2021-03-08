@@ -1,0 +1,40 @@
+
+=============HOME=============
+[1] Login
+[2] Create Account
+Action: Enter Account Number: Enter Password: 
+===========LOGGED IN===========
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+Option: 
+============PAYBILL===========
+Companies: 
+The Bright Light Electric Company (EC)
+Credit Card Company Q (CQ)
+Fast Internet Inc (FI)
+Enter company name: Companies: 
+The Bright Light Electric Company (EC)
+Credit Card Company Q (CQ)
+Fast Internet Inc (FI)
+Enter company name: Choose account to use to pay bill.
+Enter account name: Enter amount: $
+Bill paid successfully!
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+Option: 
+===========LOGGED OUT===========
+
+=============HOME=============
+[1] Login
+[2] Create Account
+Action: 
