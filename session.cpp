@@ -8,15 +8,14 @@
 #include "user.h"
 #include "request.h"
 
-using namespace std;
 using namespace req;
 
-const char* Session::companies[] = {
+const string Session::companies[] = {
             "The Bright Light Electric Compnay (EC)", 
             "Credit Card Company Q (CQ)",
             "Fast Internet Inc (FI)" };
 
-const char* Session::companyAbbrv[] = { "EC", "CQ", "FI" };
+const string Session::companyAbbrv[] = { "EC", "CQ", "FI" };
 // constructors
 Session::Session(User user) {
     this->user = user;

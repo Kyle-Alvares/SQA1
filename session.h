@@ -14,8 +14,8 @@ class Session {
         string username;
         vector<string> transactions;
     public:
-        static const char* companies[];
-        static const char* companyAbbrv[];
+        static const string companies[];
+        static const string companyAbbrv[];
         Session(User user);
         User getUser();
         double withdraw(double max, bool displayHeader);
