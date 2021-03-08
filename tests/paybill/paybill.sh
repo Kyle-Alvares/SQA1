@@ -1,4 +1,9 @@
 #!/bin/sh
 make
-cat input/paybill/paybill5.inp | ./bank > actual/paybill/paybill5.atf
-diff actual/paybill/paybill5.atf expected/paybill/paybill5.etf
+echo "Running Paybill Tests"
+for i in 1 2 3 4 5
+do
+    echo "\n\nRunning Test $i\n\n"
+    cat input/paybill/paybill$i.inp | ./bank > actual/paybill/paybill$i.atf
+    diff actual/paybill/paybill$i.atf expected/paybill/paybill$i.etf
+done
