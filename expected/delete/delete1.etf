@@ -1,0 +1,81 @@
+
+=============HOME=============
+[1] Login
+[2] Create Account
+Action: 1
+Enter Account Number: 69383
+Enter Password: 12345
+
+===========LOGGED IN===========
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+Option: 5
+Option: 6
+Option: 0
+
+===========LOGGED OUT===========
+
+=============HOME=============
+[1] Login
+[2] Create Account
+Action: 1
+Enter Account Number: 52893
+Enter Password: a
+
+===========LOGGED IN===========
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+[5] Create Account
+[6] Delete Account
+[7] Disable Account
+[8] Change Plan
+Option: 5
+
+========CREATE ACCOUNT========
+Enter account name: temp
+
+Account Balance is: 0.00
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+[5] Create Account
+[6] Delete Account
+[7] Disable Account
+[8] Change Plan
+Option: 6
+
+========DELETE ACCOUNT========
+Enter account name: temp
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+[5] Create Account
+[6] Delete Account
+[7] Disable Account
+[8] Change Plan
+Option: 0
+
+===========LOGGED OUT===========
+
+=============HOME=============
+[1] Login
+[2] Create Account
+Action: -1
