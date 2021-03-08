@@ -11,9 +11,9 @@
 using namespace req;
 
 const string Session::companies[] = {
-            "The Bright Light Electric Compnay (EC)", 
-            "Credit Card Company Q (CQ)",
-            "Fast Internet Inc (FI)" };
+            "The Bright Light Electric Company (EC)", // 52777
+            "Credit Card Company Q (CQ)",             // 56915  
+            "Fast Internet Inc (FI)" };               // 77793
 
 const string Session::companyAbbrv[] = { "EC", "CQ", "FI" };
 // constructors
