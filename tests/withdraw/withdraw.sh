@@ -1,6 +1,6 @@
 #!/bin/sh
 make
-echo "Running Paybill Tests"
+echo "Running Withdraw Tests"
 for i in 1 2 3 4 5 6 7
 do
     echo "\n\nRunning Test $i\n\n"

@@ -4,6 +4,7 @@
 #include <fstream>
 #include <vector>
 #include <limits>
+#include <iomanip>
 #include <time.h>
 #include "session.h"
 #include "user.h"
@@ -110,7 +111,14 @@ bool Session::deposit() {
     }
     double amount = askAmount();
     transactions.push_back("04" + username + to_string(amount));
-    return user.deposit(accountName, amount); 
+    bool deposited = user.deposit(accountName, amount);
+    cout << "Successfully added funds" << endl;
+    int index = user.getAccountIndex(accountName);
+    double balance = user.getAccounts()[index].balance;
+    balance = (int) (balance * 100);
+    balance = (float) balance / 100;
+    cout << "You now have $" << balance << " in your account." << endl;
+    return deposited;
 }
 
 void Session::createAccount() {

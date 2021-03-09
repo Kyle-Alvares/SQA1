@@ -1,0 +1,38 @@
+
+=============HOME=============
+[1] Login
+[2] Create Account
+Action: 1
+Enter Account Number: 69383
+Enter Password: 12345
+
+===========LOGGED IN===========
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+Option: 4
+
+============DEPOSIT============
+Enter account name: abc
+Error: Invalid account name!
+Enter account name: chequings
+Enter amount: $10
+
+===========OPTIONS============
+[0] Logout
+[1] Withdraw
+[2] Transfer
+[3] Pay-Bill
+[4] Deposit
+Option: 0
+
+===========LOGGED OUT===========
+
+=============HOME=============
+[1] Login
+[2] Create Account
+Action: -1
