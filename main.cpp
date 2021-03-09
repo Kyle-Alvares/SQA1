@@ -1,12 +1,24 @@
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <stdio.h>
+#include <stdlib.h>
 #include "user.h"
 #include "request.h"
 #include "session.h"
 
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
+    if(argc == 3) {
+        string cmd = "./cmdline.sh ";
+        string arg1 = argv[1]; // input file
+        string arg2 = argv[2]; // expected file
+        cmd += arg1;
+        cmd += " "; 
+        cmd += arg2;
+        return system(cmd.c_str());
+    }
     while(true) {
         User user;
         bool isAdmin = false;
