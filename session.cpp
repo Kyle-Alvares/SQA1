@@ -108,7 +108,6 @@ bool Session::deposit() {
         valid = user.isDisabled(accountName) ? false : true;
         if(!valid) cout << "Error: disabled account!" << endl;
     }
-    string accountName = askAccountName(user, -1);
     double amount = askAmount();
     transactions.push_back("04" + username + to_string(amount));
     return user.deposit(accountName, amount); 
