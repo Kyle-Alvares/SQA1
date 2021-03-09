@@ -59,12 +59,18 @@ void Session::transfer() {
     string mssg = "Enter depositee account number: ";
     cout << endl << "============TRANSFER===========" << endl;
     cout << mssg;
+    
     int accountNumber = askAccountNumber(mssg);
-    double amount = withdraw(1000, false);
     User other(accountNumber);
-    other.deposit("chequings", amount);
+
+    bool valid = other.isDisabled("chequings") ? false : true;
+    if(valid) {
+        double amount = withdraw(1000, false);
+        other.deposit("chequings", amount);
+        transactions.push_back("02" + username + to_string(amount));
+    }
+    else cout << "Error: This user has a disabled chequing account!" << endl;
     other.saveUserData();
-    transactions.push_back("02" + username + to_string(amount));
 }
 
 void Session::payBill() {
