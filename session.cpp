@@ -118,12 +118,12 @@ bool Session::deposit() {
     double amount = askAmount();
     transactions.push_back("04" + username + to_string(amount));
     bool deposited = user.deposit(accountName, amount);
-    cout << "Successfully added funds" << endl;
+    cout << endl << "Successfully added funds!" << endl;
     int index = user.getAccountIndex(accountName);
     double balance = user.getAccounts()[index].balance;
     balance = (int) (balance * 100);
     balance = (float) balance / 100;
-    cout << "You now have $" << balance << " in your account." << endl;
+    cout << endl << "Account Balance: $" << balance << endl;
     return deposited;
 }
 

@@ -4,4 +4,4 @@ Wells
 a
 1
 10chequings$17690
-00savings$24990
+00savings$25200.1
