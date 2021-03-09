@@ -99,6 +99,15 @@ void Session::payBill() {
 
 bool Session::deposit() {
     cout << endl << "============DEPOSIT============" << endl;
+    if(user.isAdmin())
+        askNames(user);
+    bool valid = false;
+    string accountName;
+    while(!valid) {
+        accountName = askAccountName(user, -1);
+        valid = user.isDisabled(accountName) ? false : true;
+        if(!valid) cout << "Error: disabled account!" << endl;
+    }
     string accountName = askAccountName(user, -1);
     double amount = askAmount();
     transactions.push_back("04" + username + to_string(amount));
