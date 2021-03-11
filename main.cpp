@@ -18,6 +18,8 @@ int main(int argc, char* argv[]) {
         cmd += " "; 
         cmd += arg2;
         return system(cmd.c_str());
+    } else if(argc > 1) {
+        cerr << "Invalid Args!" << endl << "Expected: <input-file> <expected-file>" << endl;
     }
     while(true) {
         User user;
